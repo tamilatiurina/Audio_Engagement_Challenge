@@ -2,7 +2,7 @@
 
 Machine learning project focused on predicting how long users listen to audio content using metadata and textual information.
 
-### 1. Fina model notebook - model.ipynb
+### 1. Final model notebook - model.ipynb
 ### 2. EDA notebooks - EDA/autoviz_analysis.ipynb; EDA/tsne_umap.ipynb
 
 ### Overview
