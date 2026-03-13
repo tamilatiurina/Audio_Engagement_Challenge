@@ -142,8 +142,6 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X_train_full, y_binned)):
         random_state=RANDOM_STATE,
         n_estimators=10000,
         learning_rate=0.05,
-        #max_depth=9,
-        #num_leaves=31,
         num_leaves=198,
         n_jobs=-1,
         bagging_fraction= 0.5550229971836489,
@@ -152,13 +150,8 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X_train_full, y_binned)):
         lambda_l1=0.002477866490667525,
         lambda_l2=2.3052514525674056e-06,
         min_child_samples=20,
-        #subsample=0.6140019739257498,
-        #colsample_bytree=0.6929901379916059,
-        #reg_alpha=0.2777658049150925,
-        #reg_lambda=6.792805978558929
     )
 
-    # LightGBM works correctly with scipy.sparse
     model.fit(
         X_train, y_train,
         eval_set=[(X_val, y_val)],
@@ -182,7 +175,7 @@ print(f"\nMean CV RMSE: {np.mean(rmse_scores):.4f}")
 # -------------------------
 if 'id' in test.columns:
     sub = pd.DataFrame({'id': test['id'].values, 'Listening_Time_minutes': test_pred})
-    sub.to_csv('submission_bayesian.csv', index=False)
+    sub.to_csv('submission_bayesian_2.csv', index=False)
     print("\n Saved submission.csv with averaged predictions across folds.")
 
 # cleaning
